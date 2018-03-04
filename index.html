@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>simple crystal game</title>
+  <title>Crystal Clicker Game</title>
 
   <style type="text/css">
 
@@ -16,74 +16,16 @@
 
   <h1>Number to Guess: <span id="number-to-guess"></span></h1>
 
+  <h2>Wins: <span id="wins"></span></h2>
+
+  <h2>Losses: <span id="losses"></span></h2>
+
+  <h2><span id="new-score"></span></h2>
+
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
   </div>
-
-  <!-- JAVASCRIPT  -->
-  <!-- ========================================= -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <script type="text/javascript">
-
-  var targetNumber = Math.floor(Math.random() * 120) + 19;
-
-  $("#number-to-guess").html(targetNumber);
-
-  var crystals = $("#crystals");
-
-  var counter = 0;
-
-  // Now for the hard part. Creating multiple crystals each with their own unique number value.
-
-  // We begin by expanding our array to include four options.
-  //var numberOptions = [10, 5, 3, 7];
-
-  //Math.floor(Math.random() * 100) + 1;
-
-
-  for (var i = 0; i < 5; i++) {
-
-    var crystalnumber = Math.floor(Math.random() * 12) + 1;
-
-    var imageCrystal = $("<img>");
-
-    imageCrystal.addClass("crystal-image");
-
-    // Each imageCrystal will be given a src link to the crystal image
-    imageCrystal.attr("src", "http://cdn.playbuzz.com/cdn/35910209-2844-45c0-b099-f4d82878d54f/00261fda-4062-4096-81fd-8cf96b9034e8.jpg");
-
-    // Each imageCrystal will be given a data attribute called data-crystalValue.
-    // This data attribute will be set equal to the array value.
-    imageCrystal.attr("data-crystalvalue", crystalnumber);
-
-    crystals.append(imageCrystal);
-
-    console.log("crystal-image[" + i + "] is "+ crystalnumber);
-  }
-
-  // This time, our click event applies to every single crystal on the page. Not just one.
-  crystals.on("click", ".crystal-image", function() {
-
-    var crystalValue = ($(this).attr("data-crystalvalue"));
-    crystalValue = parseInt(crystalValue);
-    // We then add the crystalValue to the user's "counter" which is a global variable.
-    // Every click, from every crystal adds to the global counter.
-    counter += crystalValue;
-
-    // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
-
-    if (counter === targetNumber) {
-      alert("You win!");
-    }
-
-    else if (counter >= targetNumber) {
-      alert("You lose!!");
-    }
-
-  });
-
-  </script>
+  <script src="assets/javascript/game.js"></script>
 </body>
 </html>
