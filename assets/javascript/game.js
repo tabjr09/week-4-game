@@ -6,6 +6,7 @@
   
 
   var crystals = $("#crystals");
+  var newGame = $("#new-game");
 
   var counter;
 
@@ -14,16 +15,15 @@
   Initialize();
 
 function Initialize (){
-
-    $('#crystals').empty();
-
     counter = 0;
 
+    $('#crystals').empty();
+    $('#wins').html(wins);
+    $('#losses').html(losses);
+    $('#new-score').html("New Score: " + counter);
+
     targetNumber = Math.floor(Math.random() * 120) + 19;
-
     $("#number-to-guess").html(targetNumber);
-
-    
 
     for (var i = 0; i < 4; i++) {
 
@@ -51,27 +51,29 @@ crystals.on("click", ".crystal-image", function() {
 
     counter += crystalValue;
 
-    //alert("New score: " + counter);
 
     $('#new-score').html("New Score: " + counter);
 
     if (counter === targetNumber) {
-      //alert("You win!");
-      console.log("You win");
-      Initialize();
+      $('#message').html("You Won! Let's play again.")
       wins++
       $('#wins').html(wins);
 
     }
 
     else if (counter >= targetNumber) {
-      //alert("You lose!!");
-      console.log("You lose!");
-      Initialize();
+      $('#message').html("You Lost. Let's try again.")
       losses++;
       $('#losses').html(losses);
 
     }
+
+  });
+
+  newGame.on('click', function(){
+
+    Initialize();
+    $('#message').html("Crystal Clicker! Click on any combination of the crystals to attain the target score.")
 
   });
 
