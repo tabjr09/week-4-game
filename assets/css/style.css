@@ -1,0 +1,9 @@
+body{
+    text-align: center;
+    background-image: url("../images/checkered_pattern.png");
+}
+.crystal-image {
+    width: 300px;
+    height: 300px;
+    padding: 5px;
+}
