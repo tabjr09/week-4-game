@@ -1,9 +1,17 @@
 body{
     text-align: center;
-    background-image: url("../images/checkered_pattern.png");
+    /*background-image: url("../images/checkered_pattern.png");*/
+    background-color: black;
+    color: goldenrod;
+
 }
 .crystal-image {
     width: 300px;
     height: 300px;
     padding: 5px;
+}
+
+button{
+    background-color: goldenrod;
+    color: white;
 }
